@@ -2,8 +2,8 @@ class Billete{
     constructor(v, c) {
         this.valor = v;
         this.cantidad = c;
-/*         this.imagen = new Image();
-        this.imagen.src = imagenes [this.valor]; */
+        this.imagen = new Image();
+        this.imagen.src = imagenes [this.valor];
     }
 }
 
@@ -35,7 +35,12 @@ function entregarDinero(){
     else {
         for(var e of entregado) {
             if(e.cantidad > 0) {
-                resultado.innerHTML += "retiraste " + e.cantidad + " billetes de $" + e.valor + " <hr />";
+                resultado.innerHTML += "retiraste " + e.cantidad + " billetes de $" + e.valor + " <br />" + " <br />";
+                for(var b = 1; b <= e.cantidad ;b++)
+                {
+                  resultado.innerHTML += "<img src=" + e.imagen.src + " />";
+                }
+                resultado.innerHTML += "<hr />"
             }
         }
     }
@@ -51,30 +56,35 @@ function verSaldo(){
     alert("tiene " + total + " pesos");
 }
 
+
+
 var caja = [];
 var entregado = [];
+// ESTE VAR IMAGENES TIENE QUE ESTAR ENCIMA DE LOS CAJA.PUSH.  NO SE POR QUÉ. 
+var imagenes = [];
+
 caja.push( new Billete(100, 5) );
 caja.push( new Billete(50, 10) );
 caja.push( new Billete(20, 5) );
 caja.push( new Billete(10, 10) );
 caja.push( new Billete(5, 5) );
-var dinero = 0;
-var div = 0;
-var papeles = 0;
 
-/* var imagenes = [];
+
 imagenes["100"] = "img/cerdo.png";
 imagenes["50"] = "img/billete50.png";
 imagenes["20"] = "img/billete20.png";
 imagenes["10"] = "img/billete10.png";
-imagenes["5"] = "img/billete5.jpg"; */
+imagenes["5"] = "img/billete5.jpg";
 
+var papeles = 0;
+var div = 0;
+var dinero = 0;
 
 var resultado = document.getElementById("resultado");
 
 var b = document.getElementById("extraer");
 b.addEventListener("click", entregarDinero);
 
-
 var saldo = document.getElementById("saldo");
 saldo.addEventListener("click", verSaldo)
+

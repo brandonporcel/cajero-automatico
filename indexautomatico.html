@@ -6,20 +6,19 @@
     <title>Cajero Automatica</title>
     <link rel="stylesheet" href="styleautomatico.css">
 </head>
+<body style="background: black; color: white;">
+    <h1>intento hacer un 2do commit</h1>
 <body>
-    <img src="img/cajero.png" />
-
-    <p id="sobranteCaja"></p>
+    <img style="float: left; margin-right: 1%;" src="img/diagramaFlujoCajero.png" alt="">
+    <p>
+        <img src="img/cajero.png" />
+    </p>
 
     <p>
         <input type="number" id="dinero" />
         <input type="button" value="Extraer" id="extraer" />
-
         <input type="button" value="Ver mi Saldo" id="saldo"/>
-
         <input type="button"value="Refrescar Cajero"onclick="javascript:window.location.reload();"/>
-
-
     </p>
     
     <p id="resultado"></p>
